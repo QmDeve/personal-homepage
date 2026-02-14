@@ -35,37 +35,49 @@ Check out the demo: [https://qmdeve.com](https://qmdeve.com)
 ---
 
 ## Deploy
-Need to have Node.js installed on your machine
+<details>
+<summary>Run and Build</summary>
 
-1. Clone the repository
+**Need to have Node.js installed on your machine**
+
+Clone the repository
 ```bash
 git clone https://github.com/QmDeve/personal-homepage.git
 ```
 
-2. Navigate to the project directory
+Navigate to the project directory
 ```bash
 cd personal-homepage
 ```
 
-3. Install dependencies
+Install dependencies
 ```bash
 npm install
 ```
 
-4. Run
+Run the Project
 ```bash
 npm run dev
 ```
 
-### Deploy to Server
-Build the project
+Build the Project
 ```bash
 npm run build
 ```
 
 Then you can deploy the files of the `dist` folder to your server
+</details>
 
-## Configuration
+<details>
+<summary>Deploy to Vercel</summary>
+
+**Click the Deploy button below**
+
+[![Deploy with Vercel](./preview/deploy_to_vercel_button.png)](https://vercel.com/new/clone?repository-url=https://github.com/QmDeve/personal-homepage&project-name=personal-homepage&repository-name=personal-homepage)
+
+</details>
+
+## Config
 You can edit the `.env` file to customize your homepage information, such as your website info, name, avatar, etc..
 
 If you need to edit the navigation links, you can edit the `src/js/navLinks.js` file.
