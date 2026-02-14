@@ -2,7 +2,7 @@
   <div class="theme-switcher">
     <div class="theme-switcher__title">
       <span class="theme-switcher__title-text">Home</span>
-      <span class="theme-switcher__github-icon" @click="openLink('https://github.com/QmDeve')">
+      <span class="theme-switcher__github-icon" @click="openLink('https://github.com/QmDeve/personal-homepage')">
         <i class="fab fa-github"></i>
       </span>
     </div>

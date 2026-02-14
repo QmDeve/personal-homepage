@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![Telegram](https://img.shields.io/badge/Telegram%20Group-QmDeve-blue.svg?logo=telegram)](https://t.me/QmDeve)
-[![QQ](https://img.shields.io/badge/QQ%20Group-1054049593-blue.svg?logo=qq)](https://qm.qq.com/q/NBHRYhce4y)
+[![QQ Group](https://img.shields.io/badge/QQ%20Group-1054049593-blue.svg?logo=qq)](https://qm.qq.com/q/NBHRYhce4y)
 
 </div>
 
@@ -52,7 +52,7 @@ cd personal-homepage
 npm install
 ```
 
-4. Start
+4. Run
 ```bash
 npm run dev
 ```
