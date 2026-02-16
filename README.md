@@ -1,7 +1,7 @@
 <div align="center">
 
 ## Personal Homepage
-**A simple and beautiful open source personal homepage website**
+**Neumorphism Style's Personal Homepage Website Source Code**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://GitHub.com/QmDeve/personal-homepage)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -12,7 +12,7 @@
 </div>
 
 ### Features
-- Simple and beautiful design
+- Personal homepage with Neumorphism design style
 - Responsive layout for all devices
 - Open source and free to use
 - Supports `Light Mode` and `Dark Mode`
@@ -45,7 +45,7 @@ Clone the repository
 git clone https://github.com/QmDeve/personal-homepage.git
 ```
 
-Navigate to the project directory
+Switch to the project directory
 ```bash
 cd personal-homepage
 ```
@@ -78,9 +78,9 @@ Then you can deploy the files of the `dist` folder to your server
 </details>
 
 ## Config
-You can edit the `.env` file to customize your homepage information, such as your website info, name, avatar, etc..
+- [`.env`](./.env) files - Configure personal information and website information
 
-If you need to edit the navigation links, you can edit the `src/js/navLinks.js` file.
+- [`./src/js/links.js`](./src/js/links.js) files - Configure nav links and groups links
 
 ## License
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.

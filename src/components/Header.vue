@@ -19,9 +19,9 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import Avatar from './Avatar.vue'
-import { navLinkss } from '../js/navLinks'
-import { computed } from 'vue'
+import { nav } from '../js/links'
 
 const props = defineProps({
   avatarUrl: {
@@ -42,7 +42,11 @@ const props = defineProps({
   }
 })
 
-const navLinks = computed(() => navLinkss(props.onOpenWeChat))
+const navLinks = ref([])
+
+onMounted(async () => {
+  navLinks.value = await nav(props.onOpenWeChat)
+})
 </script>
 
 <style scoped>

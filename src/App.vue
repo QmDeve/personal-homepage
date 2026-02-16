@@ -9,20 +9,29 @@
           <p><b>Country:</b> {{ config.country }}</p>
           <p><b>Interests:</b> {{ config.interests }}</p>
         </Card>
+        <Card id="skills" title="Skills">
+          <p><span>{{ config.skills }}</span></p>
+        </Card>
         <Card id="github-contributions" title="GitHub Contributions">
           <img
             src="https://raw.githubusercontent.com/QmDeve/QmDeve/refs/heads/output/github-contribution-grid-snake.svg"
-            alt="GitHub Contributions" loading="lazy" style="width: 100%; height: auto;" 
-            @click="openLink('https://github.com/QmDeve')"/>
+            alt="GitHub Contributions" loading="lazy" style="width: 100%; height: auto;"
+            @click="openLink('https://github.com/QmDeve')" />
+        </Card>
+        <Card id="github-stats" title="GitHub Stats">
+          <img
+            :src="`https://stats.qmdeve.com/api?username=${config.github_username}&show_icons=true&random=2&theme=transparent&icon_color=0b61f4&title_color=0b61f4&text_color=0b61f4&border_radius=30&border_color=0b61f4`"
+            alt="GitHub Stats" loading="lazy" style="width: 100%; height: auto;"
+            @click="openLink('https://github.com/QmDeve')" />
         </Card>
         <Card id="contact" title="Discuss Group">
-          <p v-for="group in config.groups" :key="group.name">
-            <b>{{ group.name }}:</b>
-            <span>&nbsp;</span>
-            <span class="app__link" @click="openLink(group.url)">
-              {{ group.value }}
-            </span>
-          </p>
+          <nav class="nav">
+            <a v-for="link in groupLinks" :key="link.name" :href="link.href" class="nav__item"
+              @click.prevent="link.action ? link.action() : null">
+              <i :class="link.icon"></i>
+              <span>{{ link.name }}</span>
+            </a>
+          </nav>
         </Card>
       </main>
       <Footer :name="config.name" />
@@ -32,13 +41,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import Header from './components/Header.vue'
 import Card from './components/Card.vue'
 import Footer from './components/Footer.vue'
 import QrPop from './components/QrCodePop.vue'
 import { openLink } from './js/utils'
+import { group } from './js/links'
 
 const avatarUrl = import.meta.env.VITE_AVATAR_URL
 const popOpen = ref(false)
@@ -48,10 +58,8 @@ const config = {
   des: import.meta.env.VITE_DES,
   country: import.meta.env.VITE_COUNTRY,
   interests: import.meta.env.VITE_INTERESTS,
-  groups: [
-    { name: 'Telegram', value: 'QmDeve', url: 'https://t.me/QmDeve' },
-    { name: 'QQ Group', value: '1054049593', url: 'https://qm.qq.com/cgi-bin/qm/qr?k=h7AsDzrQgPZRmVKo_Qz1uPPf9Vs0PzUk&jump_from=webapi&authKey=uL4o3bmLcoHszokz6LeX2IqtnZv9CsDqnJC2IxNVYIFuFV+pto6vF6BmsL6i6PAL' }
-  ]
+  skills: import.meta.env.VITE_SKILLS,
+  github_username: import.meta.env.VITE_GITHUB_USERNAME
 }
 
 const openPop = () => {
@@ -61,6 +69,8 @@ const openPop = () => {
 const closePop = () => {
   popOpen.value = false
 }
+
+const groupLinks = computed(() => group())
 </script>
 
 <style scoped>
