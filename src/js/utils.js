@@ -1,4 +1,4 @@
-let cachedRegion = null;
+import { config } from './config'
 
 export function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -13,10 +13,6 @@ export function openLink(url) {
 }
 
 export async function getUserRegion() {
-  if (cachedRegion) {
-    return cachedRegion;
-  }
-
   try {
     const response = await fetch('https://www.cloudflare.com/cdn-cgi/trace')
     const text = await response.text()
@@ -31,17 +27,18 @@ export async function getUserRegion() {
     })
     
     const countryCode = data.loc
-    console.log('Detected country code:', countryCode)
     if (countryCode === 'CN' || countryCode === 'HK') {
-      cachedRegion = countryCode
       return countryCode
     }
     
-    cachedRegion = 'OTHER'
     return 'OTHER'
   } catch (error) {
-    console.warn('Failed to fetch region from Cloudflare:', error)
-    cachedRegion = 'OTHER'
     return 'OTHER'
   }
 }
+
+export const copyrightYear = (() => {
+  const start = config.start_year || new Date().getFullYear()
+  const current = new Date().getFullYear()
+  return current > start ? `${start}-${current}` : start.toString()
+})()

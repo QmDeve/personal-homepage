@@ -1,17 +1,15 @@
 {
-  "name": "homepage",
-  "version": "1.0.0",
+  "name": "neumorphism-personal-homepage",
+  "version": "1.0.2",
   "author": "Donny Yale",
   "license": "Apache-2.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "echo 'Linting not configured yet'",
-    "format": "echo 'Formatting not configured yet'"
+    "build": "vite build"
   },
   "dependencies": {
+    "lottie-web": "^5.13.0",
     "vue": "^3.5.2"
   },
   "devDependencies": {

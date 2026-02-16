@@ -4,13 +4,8 @@
     <h1 class="header__name">{{ name }}</h1>
     <p class="header__title">{{ title }}</p>
     <nav class="nav">
-      <a
-        v-for="link in navLinks"
-        :key="link.name"
-        :href="link.href"
-        class="nav__item"
-        @click.prevent="link.action ? link.action() : null"
-      >
+      <a v-for="link in navLinks" :key="link.name" :href="link.href" class="nav__item"
+        @click.prevent="link.action ? link.action() : null">
         <i :class="link.icon"></i>
         <span>{{ link.name }}</span>
       </a>
@@ -42,10 +37,13 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['loaded'])
+
 const navLinks = ref([])
 
 onMounted(async () => {
   navLinks.value = await nav(props.onOpenWeChat)
+  emit('loaded')
 })
 </script>
 

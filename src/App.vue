@@ -1,9 +1,10 @@
 <template>
   <div class="app">
+    <Loading ref="loadingRef"/>
     <ThemeSwitcher />
     <div class="app__background"></div>
     <div class="app__container">
-      <Header :avatar-url="avatarUrl" :name="config.name" :title="config.des" :on-open-we-chat="openPop" />
+      <Header :avatar-url="avatarUrl" :name="config.name" :title="config.des" :on-open-we-chat="openPop" @loaded="loaded" />
       <main class="app__content">
         <Card id="about" title="About Me">
           <p><b>Country:</b> {{ config.country }}</p>
@@ -47,20 +48,14 @@ import Header from './components/Header.vue'
 import Card from './components/Card.vue'
 import Footer from './components/Footer.vue'
 import QrPop from './components/QrCodePop.vue'
+import Loading from './components/Loading.vue'
 import { openLink } from './js/utils'
 import { group } from './js/links'
+import { config } from './js/config'
 
+const loadingRef = ref(null)
 const avatarUrl = import.meta.env.VITE_AVATAR_URL
 const popOpen = ref(false)
-
-const config = {
-  name: import.meta.env.VITE_NAME,
-  des: import.meta.env.VITE_DES,
-  country: import.meta.env.VITE_COUNTRY,
-  interests: import.meta.env.VITE_INTERESTS,
-  skills: import.meta.env.VITE_SKILLS,
-  github_username: import.meta.env.VITE_GITHUB_USERNAME
-}
 
 const openPop = () => {
   popOpen.value = true
@@ -71,6 +66,24 @@ const closePop = () => {
 }
 
 const groupLinks = computed(() => group())
+
+const loaded = () => {
+  if (loadingRef.value) {
+    isFontsLoaded().then(() => {
+      const delay = (Math.random() * 1000 + 1000)
+      setTimeout(() => {
+        loadingRef.value.hide()
+      }, delay)
+    })
+  }
+}
+
+const isFontsLoaded = () => {
+  if (document.fonts && document.fonts.ready) {
+    return document.fonts.ready
+  }
+  return Promise.resolve()
+}
 </script>
 
 <style scoped>

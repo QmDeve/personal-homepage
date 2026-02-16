@@ -2,8 +2,8 @@
   <footer class="footer">
     <p>
       Copyright © {{ copyrightYear }}
-      <span class="footer__link" @click="handleLinkClick">
-        {{ name }}
+      <span class="footer__link" @click="openLink('https://github.com/QmDeve')">
+        Donny Yale
       </span>
       All Rights Reserved
     </p>
@@ -11,25 +11,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { openLink } from '../js/utils'
-
-const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  }
-})
-
-const copyrightYear = computed(() => {
-  const start = 2025
-  const current = new Date().getFullYear()
-  return current > start ? `${start}-${current}` : start.toString()
-})
-
-const handleLinkClick = () => {
-  openLink('https://github.com/QmDeve')
-}
+import { openLink, copyrightYear } from '../js/utils'
 </script>
 
 <style scoped>
