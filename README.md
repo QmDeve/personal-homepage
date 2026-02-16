@@ -30,7 +30,7 @@
 | ![Light Mode](./preview/light-mode.png) | ![Dark Mode](./preview/dark-mode.png) |
 
 ### Demo Website
-Check out the demo: [https://qmdeve.com](https://qmdeve.com)
+Go to: [https://qmdeve.com](https://qmdeve.com)
 
 ---
 
