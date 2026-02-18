@@ -86,8 +86,6 @@ Then you can deploy the files of the `dist` folder to your server
 <details>
 <summary>Deploy to Vercel</summary>
 
-**Click the Deploy button below**
-
 <a href="https://vercel.com/new/clone?repository-url=https://github.com/QmDeve/personal-homepage&project-name=personal-homepage&repository-name=personal-homepage">
   <img src="./preview/deploy_to_vercel_button.png" 
        style="border-radius: 8px;" 
