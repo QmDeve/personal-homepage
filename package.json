@@ -1,10 +1,11 @@
 {
   "name": "neumorphism-personal-homepage",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Donny Yale",
   "license": "Apache-2.0",
   "type": "module",
   "scripts": {
+    "preinstall": "node -e \"const fs=require('fs');!fs.existsSync('.env')&&fs.existsSync('.env.example')&&fs.copyFileSync('.env.example','.env')\"",
     "dev": "vite --host 0.0.0.0",
     "build": "vite build"
   },
