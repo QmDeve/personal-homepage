@@ -4,6 +4,7 @@
     <ThemeSwitcher />
     <div class="app__background"></div>
     <div class="app__container">
+      <!-- You can customize the following -->
       <Header :avatar-url="avatarUrl" :name="config.name" :title="config.des" :on-open-we-chat="openPop" @loaded="loaded" />
       <main class="app__content">
         <Card id="about" title="About Me">
@@ -67,10 +68,11 @@ const closePop = () => {
 
 const groupLinks = computed(() => group())
 
+// After loading is completed, delay 0.8-1 second to hide the loading, to ensure there is no flashing
 const loaded = () => {
   if (loadingRef.value) {
     isFontsLoaded().then(() => {
-      const delay = (Math.random() * 1000 + 1000)
+      const delay = (Math.random() * 400 + 800)
       setTimeout(() => {
         loadingRef.value.hide()
       }, delay)

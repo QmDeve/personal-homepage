@@ -34,6 +34,21 @@ Go to: [https://qmdeve.com](https://qmdeve.com)
 
 ---
 
+### Directory Structure
+```personal-homepage/
+├── public/              # Static assets
+├── src/                 # Source code
+|   ├── assets/          # Resource directory
+|   |   ├── img/         # Images files
+|   |   ├── lottie/      # Lottie animation files
+│   ├── components/      # Vue components
+│   ├── js/              # JavaScript files
+│   ├── styles/          # CSS files
+│   ├── App.vue          # Main Vue component
+│   └── main.js          # Entry point
+├── .env                 # Environment variables
+```
+
 ## Deploy
 <details>
 <summary>Run and Build</summary>
@@ -73,7 +88,11 @@ Then you can deploy the files of the `dist` folder to your server
 
 **Click the Deploy button below**
 
-[![Deploy with Vercel](./preview/deploy_to_vercel_button.png)](https://vercel.com/new/clone?repository-url=https://github.com/QmDeve/personal-homepage&project-name=personal-homepage&repository-name=personal-homepage)
+<a href="https://vercel.com/new/clone?repository-url=https://github.com/QmDeve/personal-homepage&project-name=personal-homepage&repository-name=personal-homepage">
+  <img src="./preview/deploy_to_vercel_button.png" 
+       style="border-radius: 8px;" 
+       alt="Deploy with Vercel">
+</a>
 
 </details>
 

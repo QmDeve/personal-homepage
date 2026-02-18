@@ -70,13 +70,8 @@ html {
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'PingFangSC-Semibold';
-  src: url('../assets/ttf/PingFangSC-Semibold.ttf') format('truetype');
-}
-
 body {
-  font-family: 'PingFangSC-Semibold', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: var(--color-bg);
   background-size: cover;
   min-height: 100vh;
