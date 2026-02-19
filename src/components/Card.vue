@@ -1,6 +1,6 @@
 <template>
   <section class="card" :id="id">
-    <h2 class="card__title">{{ title }}</h2>
+    <h2 v-if="title" class="card__title">{{ title }}</h2>
     <div class="card__content">
       <slot></slot>
     </div>
@@ -15,7 +15,7 @@ defineProps({
   },
   title: {
     type: String,
-    required: true
+    default: ''
   }
 })
 </script>

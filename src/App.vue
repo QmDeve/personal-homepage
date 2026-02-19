@@ -8,11 +8,11 @@
       <Header :avatar-url="avatarUrl" :name="config.name" :title="config.des" :on-open-we-chat="openPop" />
       <main class="app__content">
         <Card id="about" title="About Me">
-          <p><b>Country:</b> {{ config.country }}</p>
-          <p><b>Interests:</b> {{ config.interests }}</p>
+          <div v-html="config.about"></div>
         </Card>
         <Card id="skills" title="Skills">
-          <p><span>{{ config.skills }}</span></p>
+          <!-- <p><span>{{ config.skills }}</span></p> -->
+          <div v-html="config.skills"></div>
         </Card>
         <Card id="github-contributions" title="GitHub Contributions">
           <img
@@ -26,7 +26,7 @@
             alt="GitHub Stats" loading="lazy" style="width: 100%; height: auto;"
             @click="openLink('https://github.com/QmDeve')" />
         </Card>
-        <Card id="contact" title="Discuss Group">
+        <Card id="contact" title="Discuss Group" v-if="groupLinks && groupLinks.length > 0">
           <nav class="nav">
             <a v-for="link in groupLinks" :key="link.name" :href="link.href" class="nav__item"
               @click.prevent="link.action ? link.action() : null">
@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import Header from './components/Header.vue'
 import Card from './components/Card.vue'
@@ -51,12 +51,23 @@ import Footer from './components/Footer.vue'
 import QrPop from './components/QrCodePop.vue'
 import Loading from './components/Loading.vue'
 import { openLink } from './js/utils'
-import { group } from './js/links'
 import { config } from './js/config'
 
 const loadingRef = ref(null)
 const avatarUrl = import.meta.env.VITE_AVATAR_URL
 const popOpen = ref(false)
+const groupLinks = ref([])
+
+onMounted(async () => {
+  try {
+    const linksModule = await import('./js/links')
+    if (typeof linksModule.group === 'function') {
+      groupLinks.value = linksModule.group() || []
+    }
+  } catch (error) {
+    groupLinks.value = []
+  }
+})
 
 const openPop = () => {
   popOpen.value = true
@@ -66,13 +77,10 @@ const closePop = () => {
   popOpen.value = false
 }
 
-const groupLinks = computed(() => group())
-
-
-  const delay = (Math.random() * 400 + 800)
-  setTimeout(() => {
-    loadingRef.value.hide()
-  }, delay)
+const delay = (Math.random() * 400 + 800)
+setTimeout(() => {
+  loadingRef.value.hide()
+}, delay)
 
 </script>
 
