@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <Card class="header">
     <Avatar :src="avatarUrl" alt="avatar" />
     <h1 class="header__name">{{ name }}</h1>
     <p class="header__title">{{ title }}</p>
@@ -10,13 +10,14 @@
         <span>{{ link.name }}</span>
       </a>
     </nav>
-  </header>
+  </Card>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import Avatar from './Avatar.vue'
 import { nav } from '../js/links'
+import Card from './Card.vue'
 
 const props = defineProps({
   avatarUrl: {
@@ -37,13 +38,10 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['loaded'])
-
 const navLinks = ref([])
 
 onMounted(async () => {
   navLinks.value = await nav(props.onOpenWeChat)
-  emit('loaded')
 })
 </script>
 

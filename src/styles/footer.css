@@ -2,8 +2,7 @@
   text-align: center;
   padding: 30px;
   background: var(--color-card-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  border-radius: 30px;
   color: var(--color-text-secondary);
   box-shadow:
     8px 8px 15px var(--color-shadow-light),
@@ -22,6 +21,6 @@
 @media (max-width: 768px) {
   .footer {
     padding: 25px 15px;
-    border-radius: 15px;
+    border-radius: 26px;
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "neumorphism-personal-homepage",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Donny Yale",
   "license": "Apache-2.0",
   "type": "module",
@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "lottie-web": "^5.13.0",
-    "vue": "^3.5.2"
+    "vue": "^3.5.28"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.4",
-    "vite": "^8.0.0-beta.14"
+    "vite": "^8.0.0-beta.15"
   }
 }

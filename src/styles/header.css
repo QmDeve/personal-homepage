@@ -1,15 +1,7 @@
 .header {
   text-align: center;
   margin-bottom: 36px;
-  background: var(--color-card-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 25px;
   padding: 40px 20px;
-  box-shadow:
-    10px 10px 20px var(--color-shadow-light),
-    -10px -10px 20px var(--color-shadow-dark);
-  border: 1px solid var(--color-border);
-  transition: all 0.3s ease;
 }
 
 .header__name {
@@ -69,7 +61,6 @@
 @media (max-width: 768px) {
   .header {
     padding: 25px 15px;
-    border-radius: 15px;
     text-align: center;
   }
 

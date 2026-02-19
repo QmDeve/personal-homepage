@@ -1,9 +1,6 @@
 import { openLink } from './utils'
-import { getUserRegion } from '../js/utils'
 
 export const nav = async (onOpenWeChat) => {
-    const region = await getUserRegion()
-
     const links = [
         {
             name: 'GitHub',
@@ -18,39 +15,32 @@ export const nav = async (onOpenWeChat) => {
             action: () => {
                 window.location.href = 'mailto:donny@qmdeve.com'
             }
-        }
-    ]
-
-    // The "Telegram" button is not displayed when the user's IP is in China
-    if (region !== 'CN') {
-        links.push({
-            name: 'Telegram',
+        },
+        {
+            name: 'Blog',
+            href: 'https://blog.qmdeve.com',
+            icon: 'fas fa-blog fa-lg',
+            action: () => openLink('https://blog.qmdeve.com')
+        },
+        {
             name: 'Telegram',
             href: 'https://t.me/donny_yale',
             icon: 'fab fa-telegram fa-lg',
             action: () => openLink('https://t.me/donny_yale')
-        })
-    }
-
-    // The "WeChat" button is only displayed when the user's IP is in China or Hong Kong
-    if (region === 'CN' || region === 'HK') {
-        links.push({
+        },
+        {
             name: 'WeChat',
             href: 'javascript:void(0)',
             icon: 'bi bi-wechat fa-lg',
             action: () => onOpenWeChat()
-        })
-    }
-
-    // The "QQ" button is only displayed when the user's IP is in China or Hong Kong
-    if (region === 'CN' || region === 'HK') {
-        links.push({
+        },
+        {
             name: 'QQ',
             href: 'https://qm.qq.com/q/fEejS2afAY',
             icon: 'fab fa-qq fa-lg',
             action: () => openLink('https://qm.qq.com/q/fEejS2afAY')
-        })
-    }
+        }
+    ]
     return links
 }
 

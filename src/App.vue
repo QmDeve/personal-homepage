@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <Loading ref="loadingRef"/>
+    <Loading ref="loadingRef" />
     <ThemeSwitcher />
     <div class="app__background"></div>
     <div class="app__container">
       <!-- You can customize the following -->
-      <Header :avatar-url="avatarUrl" :name="config.name" :title="config.des" :on-open-we-chat="openPop" @loaded="loaded" />
+      <Header :avatar-url="avatarUrl" :name="config.name" :title="config.des" :on-open-we-chat="openPop" />
       <main class="app__content">
         <Card id="about" title="About Me">
           <p><b>Country:</b> {{ config.country }}</p>
@@ -68,24 +68,12 @@ const closePop = () => {
 
 const groupLinks = computed(() => group())
 
-// After loading is completed, delay 0.8-1 second to hide the loading, to ensure there is no flashing
-const loaded = () => {
-  if (loadingRef.value) {
-    isFontsLoaded().then(() => {
-      const delay = (Math.random() * 400 + 800)
-      setTimeout(() => {
-        loadingRef.value.hide()
-      }, delay)
-    })
-  }
-}
 
-const isFontsLoaded = () => {
-  if (document.fonts && document.fonts.ready) {
-    return document.fonts.ready
-  }
-  return Promise.resolve()
-}
+  const delay = (Math.random() * 400 + 800)
+  setTimeout(() => {
+    loadingRef.value.hide()
+  }, delay)
+
 </script>
 
 <style scoped>
